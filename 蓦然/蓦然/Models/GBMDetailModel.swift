@@ -1,0 +1,16 @@
+//
+//  GBMViewDetailModel.swift
+//  蓦然
+//
+//  Created by 王祖康 on 16/1/8.
+//  Copyright © 2016年 com.GeekBand. All rights reserved.
+//
+
+import Foundation
+
+class GBMDetailModel: NSObject {
+    
+    var comment = ""
+    
+    var modified = ""
+}

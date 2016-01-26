@@ -1,0 +1,47 @@
+//
+//  GBMLoginRequest.swift
+//  蓦然
+//
+//  Created by 王祖康 on 15/12/11.
+//  Copyright © 2015年 com.GeekBand. All rights reserved.
+//
+
+import Foundation
+
+class GBMLoginRequest: GBMRequestBase {
+    
+    override init() {
+        super.init()
+        
+       self.parser = GBMLoginRequestParser()
+    }
+    
+    override func sendRequest(params: [String : AnyObject], requestDelegate: GBMRequestDelegate) {
+        
+        self.urlConnection.cancel()
+        
+        self.delegate = requestDelegate
+        
+        let urlString:NSString = GBMGlobal.moRanApiHost+"user/login"
+        
+        let encodeURLString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        
+        let url = NSURL(string: encodeURLString!)
+        
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        request.timeoutInterval = 60
+        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
+        
+        let form = BLMultipartForm()
+        form.addValue(params["email"], forField: "email")
+        form.addValue(params["password"], forField: "password")
+        form.addValue(params["gbid"], forField: "gbid")
+        
+        request.HTTPBody = form.httpBody()
+        
+        request.setValue(form.contentType(), forHTTPHeaderField: "Content-Type")
+        
+        self.urlConnection = NSURLConnection(request: request, delegate: self, startImmediately: true)!
+    }
+}
