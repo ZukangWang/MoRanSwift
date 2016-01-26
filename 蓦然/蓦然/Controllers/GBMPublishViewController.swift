@@ -29,7 +29,7 @@ class GBMPublishViewController: UIViewController,UITextViewDelegate,UITableViewD
     private var locationManager: CLLocationManager?
     private var currentLocationLatitude:String?
     private var currentLocationLongitude:String?
-    private var locationArray: NSArray?
+    private var locationArray: Array<GBMLocationModel>?
     
     //MARK: - View LifeCycle Methods
     
@@ -120,7 +120,7 @@ class GBMPublishViewController: UIViewController,UITextViewDelegate,UITableViewD
         }
     }
     
-    func locationRequestSuccess(request: GBMLocationRequest, data: NSArray) {
+    func locationRequestSuccess(request: GBMLocationRequest, data: Array<GBMLocationModel>) {
         self.locationArray = data;
         self.createLocationView()
     }
@@ -282,7 +282,7 @@ class GBMPublishViewController: UIViewController,UITextViewDelegate,UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let publishCell = tableView.dequeueReusableCellWithIdentifier("PublishCell") as! GBMPublishCell
         
-        let currentLocationModel = self.locationArray![indexPath.row] as! GBMLocationModel
+        let currentLocationModel = self.locationArray![indexPath.row]
         publishCell.locationLabel.text = currentLocationModel.address as String
         publishCell.locationNameLabel.text = currentLocationModel.name as String
         
@@ -291,7 +291,7 @@ class GBMPublishViewController: UIViewController,UITextViewDelegate,UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let currentLocationModel = self.locationArray![indexPath.row] as! GBMLocationModel
+        let currentLocationModel = self.locationArray![indexPath.row]
         
         self.locationButton.setTitle(currentLocationModel.name as String, forState: .Normal)
         

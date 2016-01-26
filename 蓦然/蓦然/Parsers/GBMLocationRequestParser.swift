@@ -14,7 +14,7 @@ class GBMLocationRequestParser: GBMRequestParserBase {
         do{
             let jsonDic: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
             
-            let dataArray = NSMutableArray()
+            var dataArray = [GBMLocationModel]()
             
             let poisData = jsonDic.valueForKey("pois") as! NSArray
             for item in poisData {
@@ -24,7 +24,8 @@ class GBMLocationRequestParser: GBMRequestParserBase {
                 locationModel.name = itemData.valueForKey("name") as! String
                 locationModel.address = itemData.valueForKey("address") as! String
                 
-                dataArray.addObject(locationModel)
+                dataArray.append(locationModel)
+
             }
             
             return dataArray

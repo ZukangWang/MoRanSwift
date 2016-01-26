@@ -9,12 +9,6 @@
 import Foundation
 
 class GBMPublishRequest: GBMRequestBase {
-
-    override init() {
-        super.init()
-        
-        self.parser = GBMPublishRequestParser()
-    }
     
     override func sendRequest(params: [String : AnyObject], requestDelegate: GBMRequestDelegate) {
         self.urlConnection.cancel()
@@ -47,5 +41,9 @@ class GBMPublishRequest: GBMRequestBase {
         request.setValue(form.contentType(), forHTTPHeaderField: "Content-Type")
         
         self.urlConnection = NSURLConnection(request: request, delegate: self, startImmediately: true)!
+    }
+    
+    override func connectionDidFinishLoading(connection: NSURLConnection) {
+        delegate?.requestSuccess!(self,data: nil)
     }
 }

@@ -65,7 +65,6 @@
 		48BED4D41C40E689000CD42A /* GBMPublishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BED4D21C40E689000CD42A /* GBMPublishCell.swift */; };
 		48BED4D51C40E689000CD42A /* GBMPublishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BED4D31C40E689000CD42A /* GBMPublishCell.xib */; };
 		48BED4D71C42367A000CD42A /* GBMPublishRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BED4D61C42367A000CD42A /* GBMPublishRequest.swift */; };
-		48BED4D91C4236A7000CD42A /* GBMPublishRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BED4D81C4236A7000CD42A /* GBMPublishRequestParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +102,6 @@
 		4826A07B1C1D90A20063EF66 /* GBMRegisterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMRegisterRequest.swift; sourceTree = "<group>"; };
 		4826A07D1C1D96050063EF66 /* GBMRegisterRequestParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMRegisterRequestParser.swift; sourceTree = "<group>"; };
 		486606B31C4B6CAB00BD1CAF /* GBMLocationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMLocationRequest.swift; sourceTree = "<group>"; };
-		486606B51C5280AF00BD1CAF /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapLocationKit.framework; path = ../AMapLocationKit.framework; sourceTree = "<group>"; };
 		486606B71C528E0000BD1CAF /* GBMLocationRequestParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMLocationRequestParser.swift; sourceTree = "<group>"; };
 		486606B91C528E8400BD1CAF /* GBMLocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMLocationModel.swift; sourceTree = "<group>"; };
 		486606BB1C530BF500BD1CAF /* GBMRequestBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMRequestBase.swift; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 		48BED4D21C40E689000CD42A /* GBMPublishCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMPublishCell.swift; sourceTree = "<group>"; };
 		48BED4D31C40E689000CD42A /* GBMPublishCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GBMPublishCell.xib; sourceTree = "<group>"; };
 		48BED4D61C42367A000CD42A /* GBMPublishRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMPublishRequest.swift; sourceTree = "<group>"; };
-		48BED4D81C4236A7000CD42A /* GBMPublishRequestParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMPublishRequestParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,7 +195,6 @@
 		48BDF3781C1832A900E35667 = {
 			isa = PBXGroup;
 			children = (
-				486606B51C5280AF00BD1CAF /* AMapLocationKit.framework */,
 				48BDF3831C1832A900E35667 /* 蓦然 */,
 				48BDF3981C1832A900E35667 /* 蓦然Tests */,
 				48BDF3A31C1832A900E35667 /* 蓦然UITests */,
@@ -266,9 +262,9 @@
 				4874520A1C2319E200883AFC /* GBMSquareViewController.swift */,
 				48BED4BD1C37D232000CD42A /* GBMViewDetailController.swift */,
 				48BED4CE1C3F6178000CD42A /* GBMPublishViewController.swift */,
+				487452021C2059DF00883AFC /* GBMMyViewController.swift */,
 				4874520E1C240F1000883AFC /* GBMNickNameViewController.swift */,
 				487452101C2410F900883AFC /* GBMHeadImageViewController.swift */,
-				487452021C2059DF00883AFC /* GBMMyViewController.swift */,
 				487452161C2674D900883AFC /* GBMHomePageViewController.swift */,
 			);
 			path = Controllers;
@@ -321,7 +317,6 @@
 				4826A07D1C1D96050063EF66 /* GBMRegisterRequestParser.swift */,
 				48BED3E91C2C4959000CD42A /* GBMSquareRequestParser.swift */,
 				48BED4C31C3D5EE7000CD42A /* GBMDetailRequestParser.swift */,
-				48BED4D81C4236A7000CD42A /* GBMPublishRequestParser.swift */,
 				486606B71C528E0000BD1CAF /* GBMLocationRequestParser.swift */,
 			);
 			path = Parsers;
@@ -575,7 +570,6 @@
 				486606B41C4B6CAB00BD1CAF /* GBMLocationRequest.swift in Sources */,
 				487452171C2674D900883AFC /* GBMHomePageViewController.swift in Sources */,
 				48BED3E21C2C3C1E000CD42A /* GBMSquareCell.swift in Sources */,
-				48BED4D91C4236A7000CD42A /* GBMPublishRequestParser.swift in Sources */,
 				48BED4B21C2E32FD000CD42A /* ImageTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

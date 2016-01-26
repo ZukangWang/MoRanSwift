@@ -15,7 +15,7 @@ class GBMViewDetailController: UIViewController,UITableViewDelegate,UITableViewD
     
     var pic_id = ""
     var pic_url = ""
-    var commentArr = NSArray()
+    private var commentArr = [GBMDetailModel]()
     
     //MARK: - View LifeCycle Methods
     
@@ -50,7 +50,7 @@ class GBMViewDetailController: UIViewController,UITableViewDelegate,UITableViewD
     //MARK: - Request Delegate Methods
     
     func requestSuccess(request: GBMRequestBase, data: AnyObject?) {
-        self.commentArr = data as! NSArray
+        self.commentArr = data as! Array<GBMDetailModel>
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -73,18 +73,26 @@ class GBMViewDetailController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
-        return 60
+        return calculateCellHeight(self.commentArr[indexPath.row].comment)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("CommentListCell", forIndexPath: indexPath) as! GBMCommentListCell
         
-        let viewDetailModel = self.commentArr[indexPath.row] as! GBMDetailModel
+        let viewDetailModel = self.commentArr[indexPath.row]
         
         cell.commentLabel.text =  viewDetailModel.comment
         cell.dateLabel.text = viewDetailModel.modified
         
         return cell
+    }
+    
+    private func calculateCellHeight(comment:String)->CGFloat{
+        let commentWidth = self.view.frame.size.width - 26
+        
+        let commentSize = ((comment as NSString).boundingRectWithSize(CGSizeMake(commentWidth,CGFloat.max), options:NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(16)], context: nil)).size
+        
+        return commentSize.height
     }
 }

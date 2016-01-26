@@ -9,7 +9,7 @@
 import Foundation
 
 protocol GBMLocationRequestDelegate:GBMRequestDelegate{
-    func locationRequestSuccess(request: GBMLocationRequest, data: NSArray)
+    func locationRequestSuccess(request: GBMLocationRequest, data: Array<GBMLocationModel>)
 }
 
 class GBMLocationRequest: GBMRequestBase {

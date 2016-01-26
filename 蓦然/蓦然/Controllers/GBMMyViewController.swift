@@ -28,14 +28,14 @@ class GBMMyViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.nickNameLabel.text = GBMGlobal.user!.userName as String
-        self.emailLabel.text = GBMGlobal.user!.email as String
+        self.nickNameLabel.text = GBMGlobal.user!.userName
+        self.emailLabel.text = GBMGlobal.user!.email
         self.headImageView.image = UIImage(named: "defaultHeadImage")
     }
     
     // MARK: - TableView Data Source Delegate
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat{
         var height:CGFloat = 0;
         
         if section == 0 {
@@ -48,7 +48,7 @@ class GBMMyViewController: UITableViewController {
         return height
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat{
         return 0
     }
     
