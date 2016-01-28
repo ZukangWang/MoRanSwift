@@ -16,6 +16,9 @@
 		486606BC1C530BF500BD1CAF /* GBMRequestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486606BB1C530BF500BD1CAF /* GBMRequestBase.swift */; };
 		486606BE1C5334AA00BD1CAF /* GBMRequestParserBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486606BD1C5334AA00BD1CAF /* GBMRequestParserBase.swift */; };
 		486606C01C54FF9800BD1CAF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486606BF1C54FF9800BD1CAF /* UIViewController.swift */; };
+		486606C41C59F35D00BD1CAF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486606C31C59F35D00BD1CAF /* UIColor.swift */; };
+		486606C71C5A13E300BD1CAF /* GBMSquareTabBarItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486606C61C5A13E300BD1CAF /* GBMSquareTabBarItemController.swift */; };
+		486606C91C5A190500BD1CAF /* GBMMyTabBarItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486606C81C5A190500BD1CAF /* GBMMyTabBarItemController.swift */; };
 		487452031C2059DF00883AFC /* GBMMyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487452021C2059DF00883AFC /* GBMMyViewController.swift */; };
 		487452051C2076DE00883AFC /* GBMMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 487452041C2076DE00883AFC /* GBMMain.storyboard */; };
 		487452081C2077A000883AFC /* GBMMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487452071C2077A000883AFC /* GBMMainViewController.swift */; };
@@ -107,6 +110,9 @@
 		486606BB1C530BF500BD1CAF /* GBMRequestBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMRequestBase.swift; sourceTree = "<group>"; };
 		486606BD1C5334AA00BD1CAF /* GBMRequestParserBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMRequestParserBase.swift; sourceTree = "<group>"; };
 		486606BF1C54FF9800BD1CAF /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		486606C31C59F35D00BD1CAF /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		486606C61C5A13E300BD1CAF /* GBMSquareTabBarItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMSquareTabBarItemController.swift; sourceTree = "<group>"; };
+		486606C81C5A190500BD1CAF /* GBMMyTabBarItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMMyTabBarItemController.swift; sourceTree = "<group>"; };
 		487452021C2059DF00883AFC /* GBMMyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMMyViewController.swift; sourceTree = "<group>"; };
 		487452041C2076DE00883AFC /* GBMMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GBMMain.storyboard; sourceTree = "<group>"; };
 		487452071C2077A000883AFC /* GBMMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBMMainViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +198,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		486606C51C5A13A100BD1CAF /* TabBarItem */ = {
+			isa = PBXGroup;
+			children = (
+				486606C61C5A13E300BD1CAF /* GBMSquareTabBarItemController.swift */,
+				486606C81C5A190500BD1CAF /* GBMMyTabBarItemController.swift */,
+			);
+			path = TabBarItem;
+			sourceTree = "<group>";
+		};
 		48BDF3781C1832A900E35667 = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +271,7 @@
 		48BDF3B41C18363A00E35667 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				486606C51C5A13A100BD1CAF /* TabBarItem */,
 				48BDF3CE1C1A7BA200E35667 /* GBMLoginViewController.swift */,
 				48B0CB511C1BFCE200B1F154 /* GBMRegisterController.swift */,
 				487452071C2077A000883AFC /* GBMMainViewController.swift */,
@@ -348,6 +364,7 @@
 				4826A0791C1D5BEF0063EF66 /* GBMUtility.swift */,
 				487452121C2666EB00883AFC /* GBMGlobal.swift */,
 				486606BF1C54FF9800BD1CAF /* UIViewController.swift */,
+				486606C31C59F35D00BD1CAF /* UIColor.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -549,18 +566,21 @@
 				48BED4B01C2E32FD000CD42A /* ImageCache.swift in Sources */,
 				486606B81C528E0000BD1CAF /* GBMLocationRequestParser.swift in Sources */,
 				486606BC1C530BF500BD1CAF /* GBMRequestBase.swift in Sources */,
+				486606C71C5A13E300BD1CAF /* GBMSquareTabBarItemController.swift in Sources */,
 				487452191C2680A700883AFC /* GBMReNameRequest.swift in Sources */,
 				48BED3E01C2C3BD4000CD42A /* GBMSquareCollectionCell.swift in Sources */,
 				487452111C2410F900883AFC /* GBMHeadImageViewController.swift in Sources */,
 				48BDF3DA1C1AD58D00E35667 /* BLMultipartForm.m in Sources */,
 				4874520F1C240F1000883AFC /* GBMNickNameViewController.swift in Sources */,
 				48BED3EA1C2C4959000CD42A /* GBMSquareRequestParser.swift in Sources */,
+				486606C91C5A190500BD1CAF /* GBMMyTabBarItemController.swift in Sources */,
 				48BED3E81C2C48D1000CD42A /* GBMPictureModel.swift in Sources */,
 				48BED4B61C2E32FD000CD42A /* KingfisherOptionsInfo.swift in Sources */,
 				48BED4BC1C2E32FD000CD42A /* UIImageView+Kingfisher.swift in Sources */,
 				4874520B1C2319E200883AFC /* GBMSquareViewController.swift in Sources */,
 				4826A07A1C1D5BEF0063EF66 /* GBMUtility.swift in Sources */,
 				48B0CB521C1BFCE200B1F154 /* GBMRegisterController.swift in Sources */,
+				486606C41C59F35D00BD1CAF /* UIColor.swift in Sources */,
 				48BED4CF1C3F6178000CD42A /* GBMPublishViewController.swift in Sources */,
 				48BED4BB1C2E32FD000CD42A /* UIImage+Extension.swift in Sources */,
 				486606BA1C528E8400BD1CAF /* GBMLocationModel.swift in Sources */,

@@ -28,7 +28,7 @@ class GBMDetailRequest: GBMRequestBase {
         let url = NSURL(string: encodeURLString!)
         
         let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "GET"
+        request.HTTPMethod = HTTPMethods.Get.rawValue
         request.timeoutInterval = 60
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
         

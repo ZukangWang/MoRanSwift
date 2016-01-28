@@ -22,7 +22,7 @@ class GBMSquareViewController: UITableViewController,GBMRequestDelegate,GBMSquar
         super.viewDidLoad()
 
         //给navigationController设置背景颜色
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 237/255, green: 127/255, blue: 74/255, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = UIColor.colorToRGB("#ee7f4l")
         
         let titleButton = UIButton(type: .Custom)
         titleButton.setTitle("全部", forState: .Normal)
@@ -30,6 +30,12 @@ class GBMSquareViewController: UITableViewController,GBMRequestDelegate,GBMSquar
         titleButton.addTarget(self, action: nil, forControlEvents: .TouchDragInside)
         
         self.navigationItem.titleView = titleButton
+        
+        self.navigationController?.tabBarItem.selectedImage = UIImage(named: "square_selected")
+    
+        self.navigationController?.tabBarItem.setTitleTextAttributes(
+        [NSForegroundColorAttributeName:UIColor.colorToRGB("#ee7f4l")],
+        forState: .Selected)
         
         self.requestData()
     }

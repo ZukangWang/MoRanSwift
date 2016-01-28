@@ -17,16 +17,27 @@ class GBMMainViewController: UITabBarController,UIActionSheetDelegate,UIImagePic
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addTabBarController()
+    }
+    
+    //MARK: - Init TabBarController
+    
+    private func addTabBarController(){
+        
+        //Publish Button
         let photoButton = UIButton(frame:CGRectMake(view.frame.width/2-60,-25,120,50))
-        photoButton.setImage(UIImage(named: "publish"), forState: UIControlState.Normal)
+        photoButton.setImage(UIImage(named: "publish"), forState: .Normal)
+        photoButton.setImage(UIImage(named: "publish_hover"), forState: .Selected)
         photoButton.addTarget(self, action: "photoButtonClicked", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.tabBar.addSubview(photoButton)
         
         //去除TabBar黑线，并设置背景颜色
+        
         self.tabBar.shadowImage = UIImage()
         self.tabBar.backgroundImage = UIImage()
-        self.tabBar.backgroundColor = UIColor(red: 235/255.0, green: 236/255.0, blue: 236/255.0, alpha: 1.0)
+        self.tabBar.backgroundColor = UIColor.colorToRGB("#ebecec")
+        self.tabBar.tintColor = UIColor.colorToRGB("#ee7f4l")
     }
     
     //MARK: - Publish Button Clicked Mehthods

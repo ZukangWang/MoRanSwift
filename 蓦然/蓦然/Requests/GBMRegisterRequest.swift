@@ -28,7 +28,7 @@ class GBMRegisterRequest: GBMRequestBase {
         let url = NSURL(string: encodeURLString!)
         
         let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "POST"
+        request.HTTPMethod = HTTPMethods.Post.rawValue
         request.timeoutInterval = 60
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
         

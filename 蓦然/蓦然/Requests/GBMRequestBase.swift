@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum HTTPMethods:String{
+    case Get = "GET"
+    case Post = "POST"
+    case Put = "PUT"
+    case Delete = "DELETE"
+}
+
 @objc protocol GBMRequestDelegate{
     optional func requestSuccess(request:GBMRequestBase,data:AnyObject?)
     func requestFailed(request:GBMRequestBase,error:NSError)

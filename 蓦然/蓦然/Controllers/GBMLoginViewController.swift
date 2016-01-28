@@ -66,7 +66,7 @@ class GBMLoginViewController: UIViewController,UITextFieldDelegate,GBMRequestDel
             GBMGlobal.user!.email = self.emailTextField.text!
             
             let mainStoryboard = UIStoryboard(name: "GBMMain", bundle: NSBundle.mainBundle())
-            let mainVC = mainStoryboard.instantiateViewControllerWithIdentifier("MainStoryboard")
+            let mainVC = mainStoryboard.instantiateViewControllerWithIdentifier("GBMMainView")
             
             self.presentViewController(mainVC, animated: true, completion: nil)
             UIView.animateWithDuration(0.3, animations: {

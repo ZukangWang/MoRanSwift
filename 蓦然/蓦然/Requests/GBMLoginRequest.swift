@@ -29,7 +29,7 @@ class GBMLoginRequest: GBMRequestBase {
         let url = NSURL(string: encodeURLString!)
         
         let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "POST"
+        request.HTTPMethod = HTTPMethods.Post.rawValue
         request.timeoutInterval = 60
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
         
@@ -37,7 +37,7 @@ class GBMLoginRequest: GBMRequestBase {
         form.addValue(params["email"], forField: "email")
         form.addValue(params["password"], forField: "password")
         form.addValue(params["gbid"], forField: "gbid")
-        
+
         request.HTTPBody = form.httpBody()
         
         request.setValue(form.contentType(), forHTTPHeaderField: "Content-Type")
