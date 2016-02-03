@@ -41,7 +41,7 @@ class GBMHeadImageViewController: UIViewController,UIImagePickerControllerDelega
     
     //MARK: - Requeat Delegate Method
     
-    func requestSuccess(request: GBMRequestBase, data: AnyObject?) {
+    func requestSuccess(request: GBMRequestBase, data: Any?) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     

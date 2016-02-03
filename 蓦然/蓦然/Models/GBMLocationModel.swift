@@ -8,9 +8,21 @@
 
 import Foundation
 
-class GBMLocationModel: NSObject {
+struct GBMLocationModel {
     
     var name = ""
     
     var address = ""
+    
+    init(attributes:[String:AnyObject]){
+        
+        if let name = attributes["name"] as? String {
+            self.name = name
+        }
+        
+        if let address = attributes["address"] as? String {
+            self.address = address
+        }
+        
+    }
 }

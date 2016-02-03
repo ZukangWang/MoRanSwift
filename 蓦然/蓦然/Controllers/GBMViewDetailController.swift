@@ -49,7 +49,7 @@ class GBMViewDetailController: UIViewController,UITableViewDelegate,UITableViewD
     
     //MARK: - Request Delegate Methods
     
-    func requestSuccess(request: GBMRequestBase, data: AnyObject?) {
+    func requestSuccess(request: GBMRequestBase, data: Any?) {
         self.commentArr = data as! Array<GBMDetailModel>
         
         self.tableView.delegate = self
@@ -93,6 +93,6 @@ class GBMViewDetailController: UIViewController,UITableViewDelegate,UITableViewD
         
         let commentSize = ((comment as NSString).boundingRectWithSize(CGSizeMake(commentWidth,CGFloat.max), options:NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(16)], context: nil)).size
         
-        return commentSize.height
+        return commentSize.height+40
     }
 }

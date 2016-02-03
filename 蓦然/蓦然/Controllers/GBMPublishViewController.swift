@@ -108,7 +108,7 @@ class GBMPublishViewController: UIViewController,UITextViewDelegate,UITableViewD
     
     //MARK: - Request Delegate Methods
     
-    func requestSuccess(request: GBMRequestBase, data: AnyObject?) {
+    func requestSuccess(request: GBMRequestBase, data: Any?) {
         self.parentViewController?.dismissViewControllerAnimated(true, completion: nil)
         
         if self.tag == 1{

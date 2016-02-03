@@ -16,6 +16,9 @@ class GBMCommentListCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        commentLabel.numberOfLines = 0
+        commentLabel.sizeToFit()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

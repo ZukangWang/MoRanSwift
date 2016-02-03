@@ -40,6 +40,7 @@ class GBMSquareCell: UITableViewCell,UICollectionViewDelegate,UICollectionViewDa
         let pictureModel = dataArr[indexPath.row]
         
         var pic = pictureModel.pictureLink
+        
         pic = pic.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         let pic_url = NSURL(string: pic)
         

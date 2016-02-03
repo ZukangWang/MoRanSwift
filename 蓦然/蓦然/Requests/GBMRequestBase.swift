@@ -15,8 +15,8 @@ enum HTTPMethods:String{
     case Delete = "DELETE"
 }
 
-@objc protocol GBMRequestDelegate{
-    optional func requestSuccess(request:GBMRequestBase,data:AnyObject?)
+protocol GBMRequestDelegate{
+    func requestSuccess(request:GBMRequestBase,data:Any?)
     func requestFailed(request:GBMRequestBase,error:NSError)
 }
 
@@ -27,9 +27,7 @@ class GBMRequestBase :NSObject, NSURLConnectionDataDelegate{
     var receviedData:NSMutableData = NSMutableData()
     
     var delegate:GBMRequestDelegate?
-    
-    var parser:GBMRequestParserBase?
-    
+        
     func sendRequest(params:[String:AnyObject],requestDelegate:GBMRequestDelegate){
     
     }
@@ -38,12 +36,6 @@ class GBMRequestBase :NSObject, NSURLConnectionDataDelegate{
     
     func connection(connection: NSURLConnection, didReceiveData data: NSData) {
         self.receviedData.appendData(data)
-    }
-    
-    func connectionDidFinishLoading(connection: NSURLConnection) {
-        if let parseData = self.parser!.parseJson(self.receviedData){
-            delegate?.requestSuccess!(self, data: parseData)
-        }
     }
     
     func connection(connection: NSURLConnection, didFailWithError error: NSError) {

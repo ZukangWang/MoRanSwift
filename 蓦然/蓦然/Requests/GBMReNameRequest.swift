@@ -39,7 +39,7 @@ class GBMReNameRequest: GBMRequestBase {
         self.urlConnection = NSURLConnection(request: request, delegate: self, startImmediately: true)!
     }
     
-    override func connectionDidFinishLoading(connection: NSURLConnection) {
-        delegate?.requestSuccess!(self,data: nil)
+    func connectionDidFinishLoading(connection: NSURLConnection) {
+        delegate?.requestSuccess(self,data: nil)
     }
 }

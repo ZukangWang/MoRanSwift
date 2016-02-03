@@ -10,12 +10,6 @@ import Foundation
 
 class GBMSquareRequest: GBMRequestBase {
     
-    override init() {
-        super.init()
-        
-        self.parser = GBMSquareRequestParser()
-    }
-    
     override func sendRequest(params: [String : AnyObject], requestDelegate: GBMRequestDelegate) {
         self.urlConnection.cancel()
         
@@ -33,5 +27,31 @@ class GBMSquareRequest: GBMRequestBase {
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
         
         self.urlConnection = NSURLConnection(request: request, delegate: self, startImmediately: true)!
+    }
+    
+    func connectionDidFinishLoading(connection: NSURLConnection) {
+        
+        let jsonDic = try! NSJSONSerialization.JSONObjectWithData(self.receviedData, options: NSJSONReadingOptions.AllowFragments) as! [String:AnyObject]
+        
+        var parseData = [String:Array<GBMPictureModel>]()
+        
+        for dic in (jsonDic["data"]?.allValues)!{
+            
+            var pictureArray = [GBMPictureModel]()
+            
+            for picDictionary in (dic["pic"] as! Array<AnyObject>){
+                
+                let pictureModel = GBMPictureModel(attributes: picDictionary as! [String:AnyObject])
+                
+                pictureArray.append(pictureModel)
+            }
+            
+            let address = (dic["node"] as! [String:AnyObject])["addr"] as! String
+            
+            parseData[address] = pictureArray
+            
+        }
+        
+        delegate?.requestSuccess(self, data: parseData)
     }
 }

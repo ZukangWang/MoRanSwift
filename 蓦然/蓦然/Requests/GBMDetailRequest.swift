@@ -9,12 +9,6 @@
 import Foundation
 
 class GBMDetailRequest: GBMRequestBase {
-
-    override init() {
-        super.init()
-        
-        self.parser = GBMDetailRequestParser()
-    }
     
     override func sendRequest(params: [String : AnyObject], requestDelegate: GBMRequestDelegate) {
         self.urlConnection.cancel()
@@ -33,5 +27,24 @@ class GBMDetailRequest: GBMRequestBase {
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
         
         self.urlConnection = NSURLConnection(request: request, delegate: self, startImmediately: true)!
+    }
+
+    func connectionDidFinishLoading(connection: NSURLConnection) {
+        
+        let jsonDic = try! NSJSONSerialization.JSONObjectWithData(self.receviedData, options: NSJSONReadingOptions.AllowFragments) as! [String:AnyObject]
+        
+        var dataArray = [GBMDetailModel]()
+        
+        let viewDetailData = jsonDic["data"] as! Array<AnyObject>
+        
+        for item in viewDetailData {
+            let itemData = item as! [String:AnyObject]
+            
+            let viewDetailModel = GBMDetailModel(attributes: itemData)
+            
+            dataArray.append(viewDetailModel)
+        }
+        
+        delegate?.requestSuccess(self, data: dataArray)
     }
 }

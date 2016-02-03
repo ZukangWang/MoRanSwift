@@ -102,7 +102,7 @@ class GBMRegisterController: UIViewController,UITextFieldDelegate,GBMRequestDele
     
     //MARK: - GBMRequestDelegate Methods
     
-    func requestSuccess(request: GBMRequestBase, data: AnyObject?) {
+    func requestSuccess(request: GBMRequestBase, data: Any?) {
         
         let registerReturnMessage = data as! String
         

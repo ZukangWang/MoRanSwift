@@ -56,7 +56,7 @@ class GBMLoginViewController: UIViewController,UITextFieldDelegate,GBMRequestDel
     
     //MARK: - GBMRequestDelegate Methods
     
-    func requestSuccess(request: GBMRequestBase, data: AnyObject?) {
+    func requestSuccess(request: GBMRequestBase, data: Any?) {
         
         let user = data as! GBMUserModel
         

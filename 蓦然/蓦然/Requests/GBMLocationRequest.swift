@@ -14,12 +14,6 @@ protocol GBMLocationRequestDelegate:GBMRequestDelegate{
 
 class GBMLocationRequest: GBMRequestBase {
 
-    override init() {
-        super.init()
-        
-        self.parser = GBMLocationRequestParser()
-    }
-
     override func sendRequest(params: [String : AnyObject], requestDelegate: GBMRequestDelegate) {
         
         self.urlConnection.cancel()
@@ -38,5 +32,21 @@ class GBMLocationRequest: GBMRequestBase {
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
         
         self.urlConnection = NSURLConnection(request: request, delegate: self, startImmediately: true)!
+    }
+    
+    func connectionDidFinishLoading(connection: NSURLConnection) {
+        let jsonDic = try! NSJSONSerialization.JSONObjectWithData(self.receviedData, options: NSJSONReadingOptions.AllowFragments) as! [String:AnyObject]
+        
+        var dataArray = [GBMLocationModel]()
+        
+        let poisData = jsonDic["pois"] as! Array<AnyObject>
+        for item in poisData {
+            let itemData = item as! [String:AnyObject]
+            
+            let locationModel = GBMLocationModel(attributes: itemData)
+            
+            dataArray.append(locationModel)
+            
+        }
     }
 }

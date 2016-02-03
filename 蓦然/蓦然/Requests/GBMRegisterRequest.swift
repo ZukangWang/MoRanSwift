@@ -10,12 +10,6 @@ import Foundation
 
 class GBMRegisterRequest: GBMRequestBase {
     
-    override init() {
-        super.init()
-        
-        self.parser = GBMRegisterRequestParser()
-    }
-    
     override func sendRequest(params: [String : AnyObject], requestDelegate: GBMRequestDelegate) {
         self.urlConnection.cancel()
         
@@ -43,5 +37,14 @@ class GBMRegisterRequest: GBMRequestBase {
         request.setValue(form.contentType(), forHTTPHeaderField: "Content-Type")
         
         self.urlConnection = NSURLConnection(request: request, delegate: self, startImmediately: true)!
+    }
+    
+    func connectionDidFinishLoading(connection: NSURLConnection) {
+        
+        let attributes = try! NSJSONSerialization.JSONObjectWithData(self.receviedData, options: NSJSONReadingOptions.AllowFragments) as! [String:AnyObject]
+        
+        if let parserData = GBMRegisterModel(attributes: attributes) {
+            delegate?.requestSuccess(self, data: parserData)
+        }
     }
 }

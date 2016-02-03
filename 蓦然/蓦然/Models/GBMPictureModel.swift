@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GBMPictureModel: NSObject {
+struct GBMPictureModel {
     
     //图片Link
     var pictureLink = ""
@@ -18,5 +18,20 @@ class GBMPictureModel: NSObject {
     
     //标题
     var title = ""
-
+    
+    init(attributes:[String:AnyObject]){
+        
+        if let pictureLink = attributes["pic_link"] as? String {
+            self.pictureLink = pictureLink
+        }
+        
+        if let picureId = attributes["pic_id"] as? String {
+            self.picureId = picureId
+        }
+        
+        if let title = attributes["title"] as? String {
+            self.title = title
+        }
+        
+    }
 }

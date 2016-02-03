@@ -20,7 +20,14 @@ class GBMMyViewController: UITableViewController {
         super.viewDidLoad()
         
         //给navigationController设置背景颜色
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 237/255, green: 127/255, blue: 74/255, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = UIColor.colorToRGB("#ee7f4l")
+        
+        let titleLabel = UILabel(frame:CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 35))
+        titleLabel.text = "我的"
+        titleLabel.textAlignment = .Center
+        titleLabel.textColor = UIColor.whiteColor()
+        
+        self.navigationItem.titleView = titleLabel
         
         self.headImageView.layer.cornerRadius = self.headImageView.frame.size.width/2.0
         self.headImageView.clipsToBounds = true

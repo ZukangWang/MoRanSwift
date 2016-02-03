@@ -14,7 +14,7 @@ class GBMSquareViewController: UITableViewController,GBMRequestDelegate,GBMSquar
     
     var addrArray = [String]()
     
-    var dataDic = NSDictionary()
+    var dataDic = [String:Array<GBMPictureModel>]()
     
     //MARK: - LifeCycle Methods
     
@@ -27,15 +27,9 @@ class GBMSquareViewController: UITableViewController,GBMRequestDelegate,GBMSquar
         let titleButton = UIButton(type: .Custom)
         titleButton.setTitle("全部", forState: .Normal)
         titleButton.frame = CGRect(x: 0, y: 0, width: 200, height: 35)
-        titleButton.addTarget(self, action: nil, forControlEvents: .TouchDragInside)
+        titleButton.addTarget(self, action: "titleButtonClicked", forControlEvents: .TouchUpInside)
         
         self.navigationItem.titleView = titleButton
-        
-        self.navigationController?.tabBarItem.selectedImage = UIImage(named: "square_selected")
-    
-        self.navigationController?.tabBarItem.setTitleTextAttributes(
-        [NSForegroundColorAttributeName:UIColor.colorToRGB("#ee7f4l")],
-        forState: .Selected)
         
         self.requestData()
     }
@@ -53,10 +47,21 @@ class GBMSquareViewController: UITableViewController,GBMRequestDelegate,GBMSquar
         
         squareRequest.sendRequest(params, requestDelegate: self)
     }
+    
+    //MARK: - Create Range Selector View
+    
+    @objc func titleButtonClicked(){
+        
+//        var locationView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 300))
+//        locationView.backgroundColor = UIColor.redColor()
+//        locationView.layer
+//        
+//        self.view.addSubview(locationView)
+    }
 
     //MARK: - GBMRequestDelegate Methods
     
-    func requestSuccess(request: GBMRequestBase, data: AnyObject?) {
+    func requestSuccess(request: GBMRequestBase, data: Any?) {
         
         let returnData = data as! Dictionary<String,Array<GBMPictureModel>>
 
@@ -86,7 +91,7 @@ class GBMSquareViewController: UITableViewController,GBMRequestDelegate,GBMSquar
         let address = self.addrArray[indexPath.row]
         cell.locationLabel.text = address
         
-        cell.dataArr = self.dataDic[address] as! Array<GBMPictureModel>
+        cell.dataArr = self.dataDic[address]!
         
         cell.collectionView.reloadData()
         

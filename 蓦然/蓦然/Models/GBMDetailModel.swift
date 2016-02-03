@@ -8,9 +8,20 @@
 
 import Foundation
 
-class GBMDetailModel: NSObject {
-    
+struct GBMDetailModel {
+    //评论
     var comment = ""
-    
+    //编辑日期
     var modified = ""
+    
+    init(attributes:[String:AnyObject]){
+        
+        if let comment = attributes["comment"] as? String {
+            self.comment = comment
+        }
+        
+        if let modified = attributes["modified"] as? String {
+            self.modified = modified
+        }
+    }
 }

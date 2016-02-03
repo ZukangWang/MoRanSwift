@@ -27,7 +27,7 @@ class GBMNickNameViewController: UIViewController,GBMRequestDelegate{
     
     //MARK: - GBMRequestDelegate Methods
     
-    func requestSuccess(request: GBMRequestBase, data: AnyObject?) {
+    func requestSuccess(request: GBMRequestBase, data: Any?) {
         GBMGlobal.user!.userName = self.newNickName.text!
         self.navigationController?.popViewControllerAnimated(true)
     }
